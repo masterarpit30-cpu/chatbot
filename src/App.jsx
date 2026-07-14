@@ -43,7 +43,7 @@ function ChatMessage({ message, sender }) {
         <div className={sender === 'robot' ? 'chat-message-robot' : 'chat-message-user'}>
             {sender === 'robot' && (
                 <>
-                    <img src="../robot.png" className="chat-message-profile" />
+                    <img src="./src/assets/robot.png" className="chat-message-profile" />
                     &nbsp;
                 </>
             )}
@@ -53,7 +53,7 @@ function ChatMessage({ message, sender }) {
             {sender === 'user' && (
                 <>
                     &nbsp;
-                    <img src="../user.png" className="chat-message-profile" />
+                    <img src="./src/assets/user.png" className="chat-message-profile" />
                 </>
             )}
         </div>
