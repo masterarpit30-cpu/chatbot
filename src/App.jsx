@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import {Chatbot} from "supersimpledev";
+import './App.css'
+import RobotProfileImage from './assets/robot.png';
+import UserProfileImage from './assets/user.png';
 
 function ChatInput({ chatMessages, setChatMessages }) {
     const [inputText, setInputText] = useState('');
@@ -43,7 +46,7 @@ function ChatMessage({ message, sender }) {
         <div className={sender === 'robot' ? 'chat-message-robot' : 'chat-message-user'}>
             {sender === 'robot' && (
                 <>
-                    <img src="./src/assets/robot.png" className="chat-message-profile" />
+                    <img src={RobotProfileImage} className="chat-message-profile" />
                     &nbsp;
                 </>
             )}
@@ -53,7 +56,7 @@ function ChatMessage({ message, sender }) {
             {sender === 'user' && (
                 <>
                     &nbsp;
-                    <img src="./src/assets/user.png" className="chat-message-profile" />
+                    <img src={UserProfileImage} className="chat-message-profile" />
                 </>
             )}
         </div>
