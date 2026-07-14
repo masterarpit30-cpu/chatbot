@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-
+import {Chatbot} from "supersimpledev";
 
 function ChatInput({ chatMessages, setChatMessages }) {
     const [inputText, setInputText] = useState('');
