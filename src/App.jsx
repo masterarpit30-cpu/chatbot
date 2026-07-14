@@ -85,16 +85,44 @@ function ChatMessages({ chatMessages }) {
         </div>
     );
 }
+function Link({isChatbotInitialized, setIsChatbotInitialized}) {
+    return (
+            <div className="link-container">
+                <a href="" onClick={() => {
+                    setIsChatbotInitialized(!isChatbotInitialized);
+                }}>
+                    Move Input Chatbox to the 
+                    {isChatbotInitialized ? ' top' : ' bottom'} of the page
+                </a>
+            </div>
+    );
+}
 
 function App() {
 
     const [chatMessages, setChatMessages] = useState([]);
+    const [isChatbotInitialized, setIsChatbotInitialized] = useState(false);
+
+    // useEffect(() => {
+    //     setIsChatbotInitialized(true);
+    // }, []);
 
     return (
         <div className="app-container">
-
-            <ChatMessages chatMessages={chatMessages} />
-            <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
+            {isChatbotInitialized 
+            ? 
+                <>
+                    <ChatMessages chatMessages={chatMessages} />
+                    <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
+                </>
+            :
+                <>
+                    <ChatInput chatMessages={chatMessages} setChatMessages={setChatMessages} />
+                    <ChatMessages chatMessages={chatMessages} />
+                </>
+            }
+            <Link isChatbotInitialized={isChatbotInitialized} 
+            setIsChatbotInitialized={setIsChatbotInitialized} />
         </div>
     );
 }
