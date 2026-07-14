@@ -85,10 +85,10 @@ function ChatMessages({ chatMessages }) {
         </div>
     );
 }
-function Link({isChatbotInitialized, setIsChatbotInitialized}) {
+function ToggleInputBox({isChatbotInitialized, setIsChatbotInitialized}) {
     return (
             <div className="link-container">
-                <a href="" onClick={() => {
+                <a onClick={() => {
                     setIsChatbotInitialized(!isChatbotInitialized);
                 }}>
                     Move Input Chatbox to the 
@@ -102,10 +102,6 @@ function App() {
 
     const [chatMessages, setChatMessages] = useState([]);
     const [isChatbotInitialized, setIsChatbotInitialized] = useState(false);
-
-    // useEffect(() => {
-    //     setIsChatbotInitialized(true);
-    // }, []);
 
     return (
         <div className="app-container">
@@ -121,7 +117,7 @@ function App() {
                     <ChatMessages chatMessages={chatMessages} />
                 </>
             }
-            <Link isChatbotInitialized={isChatbotInitialized} 
+            <ToggleInputBox isChatbotInitialized={isChatbotInitialized} 
             setIsChatbotInitialized={setIsChatbotInitialized} />
         </div>
     );
